@@ -1,18 +1,17 @@
-# TicTacToe
+# 井字棋
 
-A Python implementation of the classic Tic-Tac-Toe game.
+这是经典井字棋游戏的Python实现。
 
-## Table of Contents
+## 目录
 
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+- [项目结构](#项目结构)
+- [安装](#安装)
+- [使用方法](#使用方法)
+- [特性](#特性)
+- [测试](#测试)
+- [贡献](#贡献)
 
-## Project Structure
+## 项目结构
 
 ```
 TicTacToe
@@ -36,76 +35,60 @@ TicTacToe
     └── test_update_screen.py
 ```
 
-## Installation
+## 安装
 
-To set up the project locally, follow these steps:
+按照以下步骤在本地设置项目：
 
-1. Clone the repository:
+1. 克隆仓库：
    ```bash
-   git clone https://github.com/yourusername/TicTacToe.git
+   git clone https://github.com/1998x-stack/TicTacToe.git
    cd TicTacToe
    ```
 
-2. (Optional) Create and activate a virtual environment:
+2. （可选）创建并激活虚拟环境：
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   source venv/bin/activate  # 在Windows上，使用 `venv\Scripts\activate`
    ```
 
-3. Install any required dependencies (if applicable):
+3. 安装所需依赖（如果适用）：
    ```bash
    pip install -r requirements.txt
    ```
 
-## Usage
+## 使用方法
 
-To start the game, run the following command from the project root:
+要启动游戏，从项目根目录运行以下命令：
 
 ```bash
 python main.py
 ```
 
-Follow the on-screen instructions to play the game.
+按照屏幕上的指示玩游戏。
 
-## Features
+## 特性
 
-- Classic Tic-Tac-Toe gameplay
-- Modular code structure for easy maintenance and extension
-- Comprehensive test suite
+- 经典井字棋游戏玩法
+- 模块化代码结构，便于维护和扩展
+- 全面的测试套件
 
-## Testing
+## 测试
 
-To run the tests, execute the following command from the project root:
+要运行测试，从项目根目录执行以下命令：
 
 ```bash
 python -m unittest discover test
 ```
 
-## Contributing
+## 贡献
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+欢迎贡献！请随时提交Pull Request。
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This README provides a good starting point based on the structure of your TicTacToe project. You may want to customize it further by:
-
-1. Adding more specific details about how to play the game.
-2. Describing any special features or game modes your implementation might have.
-3. Explaining the purpose of each module in the `src` directory.
-4. Providing information about any dependencies your project might have.
-5. Adding badges (e.g., build status, test coverage) if you're using any CI/CD tools.
-6. Including screenshots or GIFs of the game in action.
-```
-
+1. Fork 项目
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的更改 (`git commit -m '添加一些很棒的特性'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启一个Pull Request
 ---
 
 ## 各个类及其函数逻辑
