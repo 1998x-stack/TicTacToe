@@ -104,10 +104,11 @@ This README provides a good starting point based on the structure of your TicTac
 4. Providing information about any dependencies your project might have.
 5. Adding badges (e.g., build status, test coverage) if you're using any CI/CD tools.
 6. Including screenshots or GIFs of the game in action.
+```
 
 ---
 
-### 详细展开各个类及其函数逻辑
+## 各个类及其函数逻辑
 
 在设计井字棋游戏时，每个类的职责和函数的设计至关重要。下面是各个类需要的函数及其详细的逻辑展开。
 
@@ -242,7 +243,9 @@ This README provides a good starting point based on the structure of your TicTac
 
 ---
 
-### 各个函数之间的引用关系详细展开
+## 各个函数之间的引用关系详细展开
+
+![!image](data/arch.png)
 
 在设计井字棋游戏时，理解各个函数之间的相互引用关系有助于明确整个游戏的工作流程。以下是详细的函数引用关系及其在游戏中的作用。
 
