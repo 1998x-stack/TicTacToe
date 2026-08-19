@@ -12,19 +12,16 @@ def main() -> None:  # 定义主函数
     pygame.init()  # 初始化pygame
     screen = pygame.display.set_mode((300, 300))  # 创建300x300像素的游戏窗口
     pygame.display.set_caption("Tic-Tac-Toe")  # 设置窗口标题为"Tic-Tac-Toe"
-    print("Pygame initialized and screen created.")  # 打印初始化完成信息
     
     play_background_music() # 播放背景音乐
 
     # 创建Player对象
     player_x = Player('X')  # 创建玩家X
     player_o = Player('O')  # 创建玩家O
-    print("Players X and O created.")  # 打印玩家创建完成信息
 
     # 创建GameBoard和GameState对象
     game_board = GameBoard()  # 创建游戏板
     game_state = GameState(player_x, player_o)  # 创建游戏状态
-    print("GameBoard and GameState initialized.")  # 打印游戏板和游戏状态初始化完成信息
 
     # 游戏主循环
     while not game_state.game_over:  # 当游戏未结束时循环
@@ -47,7 +44,6 @@ def main() -> None:  # 定义主函数
     # 等待几秒后退出
     pygame.time.wait(3000)  # 等待3秒
     pygame.quit()  # 退出pygame
-    print("Game ended. Pygame quit.")  # 打印游戏结束信息
 
 if __name__ == "__main__":  # 如果这个脚本是作为主程序运行
     main()  # 调用main函数

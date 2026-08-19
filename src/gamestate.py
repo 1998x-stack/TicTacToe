@@ -23,7 +23,6 @@ class GameState:
         self.player_o = player_o  # 设置O玩家
         self.current_player = player_x  # 设置当前玩家为X
         self.game_over = False  # 初始化游戏未结束
-        print("游戏初始化完成。X玩家先手。")
 
     def switch_player(self) -> None:
         """切换当前玩家到另一个玩家。"""
@@ -31,7 +30,6 @@ class GameState:
             self.current_player = self.player_o  # 如果当前是X玩家，切换到O玩家
         else:
             self.current_player = self.player_x  # 否则切换到X玩家
-        print(f"玩家切换。现在轮到{self.current_player.get_symbol()}玩家。")
 
     def check_game_over(self, board: 'GameBoard') -> Optional[str]:
         """检查游戏是否因胜利或平局而结束。
@@ -45,12 +43,10 @@ class GameState:
         winner = board.check_winner()  # 检查是否有胜者
         if winner:
             self.game_over = True  # 如果有胜者，游戏结束
-            print(f"游戏结束！胜者是{winner}。")
             return winner
         
         if board.is_full():  # 检查棋盘是否已满
             self.game_over = True  # 如果棋盘已满，游戏结束
-            print("游戏结束！平局。")
             return None
         
         return None  # 游戏继续

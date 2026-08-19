@@ -1,4 +1,6 @@
 import unittest
+import io
+import contextlib
 import pygame
 from src.gameboard import GameBoard
 
@@ -94,6 +96,14 @@ class TestGameBoard(unittest.TestCase):
         self.board.reset()
         for row in self.board.grid:
             self.assertEqual(row, [None, None, None])
+
+    def test_mark_cell_is_quiet(self):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            self.board.mark_cell(0, 0, 'X')
+            _ = self.board.mark_cell(0, 1, 'X')
+            _ = self.board.reset()
+        self.assertEqual(buf.getvalue(), "")
 
 if __name__ == '__main__':
     unittest.main()

@@ -54,10 +54,8 @@ class GameBoard:
         
         if self.grid[row][col] is None:  # 如果单元格为空
             self.grid[row][col] = player_symbol  # 标记单元格
-            print(f"单元格 ({row}, {col}) 被标记为 '{player_symbol}'。")
             return True
         
-        print(f"单元格 ({row}, {col}) 已被占用。")
         return False
 
     def check_winner(self) -> Optional[str]:
@@ -68,17 +66,13 @@ class GameBoard:
         """
         for i in range(3):  # 检查行和列
             if self.grid[i][0] == self.grid[i][1] == self.grid[i][2] and self.grid[i][0] is not None:
-                print(f"在第 {i} 行找到赢家：'{self.grid[i][0]}'")
                 return self.grid[i][0]
             if self.grid[0][i] == self.grid[1][i] == self.grid[2][i] and self.grid[0][i] is not None:
-                print(f"在第 {i} 列找到赢家：'{self.grid[0][i]}'")
                 return self.grid[0][i]
         
         if self.grid[0][0] == self.grid[1][1] == self.grid[2][2] and self.grid[0][0] is not None:  # 检查主对角线
-            print("在对角线（左上到右下）找到赢家。")
             return self.grid[0][0]
         if self.grid[0][2] == self.grid[1][1] == self.grid[2][0] and self.grid[0][2] is not None:  # 检查副对角线
-            print("在对角线（右上到左下）找到赢家。")
             return self.grid[0][2]
         
         return None  # 没有找到赢家
@@ -93,10 +87,8 @@ class GameBoard:
             if None in row:  # 如果行中有空单元格
                 return False
         
-        print("游戏板已满。")
         return True
 
     def reset(self) -> None:
         """重置游戏板，清空所有单元格。"""
         self.grid = [[None for _ in range(3)] for _ in range(3)]  # 重置网格，将所有单元格设为 None
-        print("游戏板已被重置。")

@@ -11,12 +11,9 @@ def update_screen(screen: pygame.Surface, game_board: 'GameBoard') -> None:
     """
     # 通过填充背景色（例如白色）来清空屏幕
     screen.fill((255, 255, 255))
-    print("屏幕已清空并填充背景色。")
 
     # 在屏幕上绘制游戏板
     game_board.draw_board(screen)
-    print("游戏板已绘制在屏幕上。")
 
     # 刷新显示以显示更新后的屏幕
     pygame.display.flip()
-    print("显示已刷新。")
