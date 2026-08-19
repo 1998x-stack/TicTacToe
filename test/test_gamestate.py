@@ -1,6 +1,6 @@
 import unittest
 from src.player import Player
-from src.cgameboard import GameBoard
+from src.gameboard import GameBoard
 from src.gamestate import GameState
 
 class TestGameState(unittest.TestCase):
