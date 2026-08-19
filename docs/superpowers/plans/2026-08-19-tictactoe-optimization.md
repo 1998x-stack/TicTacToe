@@ -84,7 +84,7 @@ In each listed `src/` module, delete every `print(...)` line (and any `import sy
 - [ ] **Step 4: Run to verify it passes**
 
 Run: `python3 -m unittest test.test_gameboard test.test_player test.test_update_screen test.test_handle_events test.test_gamestate 2>&1 | tail -4`
-Expected: all PASS (22 tests).
+Expected: all PASS (27 tests).
 
 - [ ] **Step 5: Commit**
 
@@ -103,7 +103,7 @@ git commit -m "cleanup(src): remove debug print noise; add stdout-silence guard"
 - [ ] **Step 1: Run full suite**
 
 Run: `python3 -m unittest discover test -v 2>&1 | tail -8`
-Expected: 22 tests pass.
+Expected: 27 tests pass.
 
 - [ ] **Step 2: Confirm no prints remain in src/**
 
