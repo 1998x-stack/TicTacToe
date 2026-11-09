@@ -1,20 +1,20 @@
-import pygame  # 导入pygame库
+"""Optional game music; absence of an audio device is not fatal."""
+from pathlib import Path
+import pygame
 
-def play_background_music(file: str='data/background.mp3') -> None:
-    """播放循环背景音乐。
+DEFAULT_MUSIC = Path(__file__).resolve().parents[1] / "data" / "background.mp3"
 
-    参数:
-        file: 音乐文件的路径（例如：'background.mp3'）。
-    """
-    # 初始化声音混音器
-    pygame.mixer.init()
-
-    # 加载音乐文件
-    pygame.mixer.music.load(file)
-
-    # 循环播放音乐（-1表示无限循环）
-    pygame.mixer.music.play(loops=-1)
+def play_background_music(file=None) -> bool:
+    try:
+        if pygame.mixer.get_init() is None:
+            pygame.mixer.init()
+        pygame.mixer.music.load(str(file or DEFAULT_MUSIC))
+        pygame.mixer.music.play(loops=-1)
+        return True
+    except (pygame.error, OSError):
+        # e.g. headless runner with no audio backend or missing local asset
+        return False
 
 def stop_background_music() -> None:
-    """停止背景音乐。"""
-    pygame.mixer.music.stop()  # 停止音乐播放
+    if pygame.mixer.get_init() is not None:
+        pygame.mixer.music.stop()

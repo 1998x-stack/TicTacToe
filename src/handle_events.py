@@ -1,33 +1,33 @@
+"""Map UI events into state transitions; never terminate the interpreter."""
 import pygame
 from typing import Optional
 
 def handle_events(game_state: 'GameState', game_board: 'GameBoard') -> Optional[str]:
-    """处理用户输入事件并相应地更新游戏状态。"""
-    
-    for event in pygame.event.get():  # 遍历所有待处理的事件
-        if event.type == pygame.QUIT:  # 如果事件类型是退出
-            pygame.quit()  # 退出pygame
-            exit()  # 退出程序
-        
-        if event.type == pygame.MOUSEBUTTONDOWN:  # 如果事件类型是鼠标按下
-            x, y = event.pos  # 获取鼠标点击位置的坐标
-            
-            # 将屏幕坐标转换为棋盘行列
-            row = y // 100  # 计算行号
-            col = x // 100  # 计算列号
+    """Return 'QUIT', a winner symbol, 'RESTART', or None.
 
-            # 确保点击在有效的网格区域内
-            if 0 <= row < 3 and 0 <= col < 3:  # 检查行列是否在有效范围内
-                # 尝试进行移动
-                if game_state.current_player.make_move(game_board, row, col):  # 如果当前玩家成功下棋
-                    # 检查游戏是否结束（胜利或平局）
-                    winner = game_state.check_game_over(game_board)  # 检查是否有胜者
-                    if winner:  # 如果有胜者
-                        return winner  # 返回胜者
-                    elif game_state.game_over:  # 如果游戏结束但没有胜者（平局）
-                        return None  # 返回None表示平局
-                    
-                    # 如果游戏未结束，切换玩家
-                    game_state.switch_player()  # 切换到下一个玩家
-    
-    return None  # 如果没有发生任何导致游戏结束的事件，返回None
+    A terminal board rejects further moves until the player explicitly presses R.
+    """
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return "QUIT"
+        if event.type == pygame.KEYDOWN:
+            if event.key in (pygame.K_q, pygame.K_ESCAPE):
+                return "QUIT"
+            if event.key == pygame.K_r:
+                game_board.reset()
+                game_state.reset()
+                return "RESTART"
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if game_state.game_over:
+                continue
+            x, y = event.pos
+            row, col = y // 100, x // 100
+            if 0 <= row < 3 and 0 <= col < 3:
+                if game_state.current_player.make_move(game_board, row, col):
+                    winner = game_state.check_game_over(game_board)
+                    if winner:
+                        return winner
+                    if game_state.game_over:
+                        return None  # draw: game_over distinguishes this from ongoing
+                    game_state.switch_player()
+    return None

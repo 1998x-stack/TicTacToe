@@ -1,5 +1,16 @@
 # 井字棋
 
+> **Updated 2026-11-09 — P1 gameplay & test reliability.** Desktop 3×3 two-player match:
+> click a square to place X/O; press **R** to restart at any time; press **Q/Esc**
+> or close the window to exit. When the match ends, the final board and winner/draw
+> message remain visible until restart or exit. Audio is optional (silent in CI).
+>
+> Install with `python -m pip install "pygame>=2.5,<3"`; run `python main.py`.
+> Headless verification: `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python -m unittest discover -s test -v`.
+> The previous README's `requirements.txt` instruction referred to a nonexistent file and has been corrected below.
+> A successful CI smoke test does not establish real-device usability.
+
+
 这是经典井字棋游戏的Python实现。
 
 ## 目录
@@ -53,7 +64,7 @@ TicTacToe
 
 3. 安装所需依赖（如果适用）：
    ```bash
-   pip install -r requirements.txt
+   python -m pip install "pygame>=2.5,<3"
    ```
 
 ## 使用方法

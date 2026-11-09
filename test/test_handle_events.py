@@ -21,8 +21,8 @@ class TestHandleEvents(unittest.TestCase):
         """Test that the game quits when a QUIT event is received."""
         mock_pygame_event_get.return_value = [pygame.event.Event(pygame.QUIT)]
         
-        with self.assertRaises(SystemExit):
-            handle_events(self.game_state, self.board)
+        result = handle_events(self.game_state, self.board)
+        self.assertEqual(result, "QUIT")
 
     @patch('pygame.event.get')
     def test_handle_valid_move(self, mock_pygame_event_get):
