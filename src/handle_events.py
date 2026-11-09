@@ -17,7 +17,7 @@ def handle_events(game_state: 'GameState', game_board: 'GameBoard') -> Optional[
                 game_board.reset()
                 game_state.reset()
                 return "RESTART"
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        if event.type == pygame.MOUSEBUTTONDOWN and getattr(event, "button", 1) == 1:
             if game_state.game_over:
                 continue
             x, y = event.pos
